@@ -1,0 +1,31 @@
+<form (submit)="onSubmit()">
+  <label for="birth-year">Birth year</label>
+  <input id="birth-year" type="number" [(ngModel)]="model.birthdayYear" required>
+  <label for="years-lived-in-lithuania">How many years lived in Lithuania?</label>
+  <input id="years-lived-in-lithuania" [(ngModel)]="model.yearsLivedInLithuania">
+  <label>At least one of your parent is lithuanian
+    <input type="radio" name="lithuanian" [value]="true" [(ngModel)]="model.parentLithuanian"> Yes
+    <input type="radio" name="lithuanian" [value]="false" [(ngModel)]="model.parentLithuanian" checked> No
+  </label>
+  <label>Are you convicted?
+    <input type="radio" name="convicted" [value]="true" [(ngModel)]="model.convicted"> Yes
+    <input type="radio" name="convicted" [value]="false" [(ngModel)]="model.convicted" checked> No
+  </label>
+  <label>Have you passed language test?
+    <input type="radio" name="language" [value]="true" [(ngModel)]="model.passedLanguageExam"> Yes
+    <input type="radio" name="language" [value]="false" [(ngModel)]="model.passedLanguageExam" checked> No
+  </label>
+  <label>Have you requested Lithuania nationality?
+    <input type="radio" name="request" [value]="true" [(ngModel)]="model.requestedNationality"> Yes
+    <input type="radio" name="request" [value]="false" [(ngModel)]="model.requestedNationality" checked> No
+  </label>
+  <label> Question:
+    <input type="radio" name="question" [value]="'CS'" [(ngModel)]="model.questionCode"> Can i candidate in Seimas?
+    <input type="radio" name="question" [value]="'LR'" [(ngModel)]="model.questionCode" checked> Can i have Lithuania nationality?
+  </label>
+  <button type="submit">Search</button>
+  <div *ngIf="searched == true && result == false">No</div>
+  <div *ngIf="result==true">Yes</div>
+</form>
+
+
